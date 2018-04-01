@@ -5,3 +5,6 @@
 	path = public
 	url = git@github.com:vingenuity/vingenuity.github.io.git
 	branch = master
+[submodule "themes/hugo-materialized"]
+	path = themes/hugo-materialized
+	url = https://github.com/jchatkinson/hugo-materialized.git
