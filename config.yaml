@@ -1,4 +1,12 @@
 baseurl: "http://vingenuity.github.io/"
 languageCode: "en-us"
 title: "Vingenuity"
-theme: "ananke"
+theme: "hugo-materialized"
+
+params:
+  description: "Game Programmer"
+  name: "Vincent Kocks"
+  ownerEmailAddress: "howlingblue@gmail.com"
+  ownerGitHubUsername: "vingenuity"
+  ownerTwitterUsername: "kvingenuity"
+  sidenav: "/images/vingenuity-logo.png"
