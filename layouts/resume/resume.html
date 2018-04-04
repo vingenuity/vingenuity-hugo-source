@@ -13,3 +13,9 @@
    {{ .Content }}
    <div class="divider"></div>
 {{ end }}
+
+{{ range $.Params.resumes }}
+	{{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
+   {{ $contextDictionary := (dict "document" . "page" $ ) }}
+	{{ partial $fullViewerPath $contextDictionary }}
+{{ end }}

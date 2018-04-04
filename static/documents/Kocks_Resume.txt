@@ -1,0 +1,72 @@
+  --------------------- ----------------------------------------- ------------------------------
+  ![](logo-sized.png)   [Vincent Kocks]{custom-style="Top Text"}\   **vincent\@vingenuity.net**\
+                        [Game                                       <http://www.vingenuity.net>\
+                        Programmer]{custom-style="Top Subtext"}                  (940) 631-5605\
+  --------------------- ----------------------------------------- ------------------------------
+
+Projects
+--------
+
++:-------------------+:------------------------------------------------+
+| ### Cobalt         | -   Wrote PowerShell scripts for developer and  |
+|                    |     build server use.                           |
+| *3 months --       | -   Managed TeamCity CI projects and            |
+| 2018*\             |     configurations for all UE4 teams.           |
+| **Build/Tools      | -   Documented localization, PS4, and build     |
+| Programmer**\      |     workflows for developers.                   |
+| (35 Developers)    | -   Prototyped client deployment application    |
+|                    |     for playtest PCs and PS4s.                  |
++--------------------+-------------------------------------------------+
+| ### Orcs Must Die! | -   Modified UE3 input system to support        |
+|  Unchained         |     bindable multi-input commands.              |
+|                    | -   Adapted Scaleform emulator into UI testing  |
+| *22 months --      |     tool for artists.                           |
+| 2017*\             | -   Rewrote minimap, in-world markers, and      |
+| **UI/Tools         |     flyoffs for max performance.                |
+| Programmer**\      | -   Created in-editor tool for artists to       |
+| (88 Developers)    |     create custom load screens.                 |
+|                    | -   Customized HUD and menus to support PS4     |
+|                    |     platform.                                   |
+|                    | -   Built new Kismet nodes to support designers |
+|                    |     in creating sequences.                      |
++--------------------+-------------------------------------------------+
+| ### Vingine        | -   Wrote codebase for custom C++ game engine.  |
+|                    | -   Built entity-component system for gameplay  |
+| *10 months --      |     code.                                       |
+| 2015*\             | -   Supported multiple platforms: PS3, Vita,    |
+| **Solo Developer** |     Android, and HTML5.                         |
++--------------------+-------------------------------------------------+
+| ### Super Slash n' | -   Implemented Scaleform HUD, menus, and map   |
+|  Grab              |     screens.                                    |
+|                    | -   Created custom cutscene player in Flash for |
+| *7 months --       |     UDK game.                                   |
+| 2014*\             | -   Built UDK localization class for swapping   |
+| **Lead             |     languages on-the-fly.                       |
+| Programmer**\      | -   Planned and managed tasks for               |
+| (15 Developers)    |     three-programmer department.                |
++--------------------+-------------------------------------------------+
+
+Skills
+------
+
+  [Languages:]{custom-style="Skills"}   [Engines/Tools:]{custom-style="Skills"}   [Concepts:]{custom-style="Skills"}
+  ------------------------------------- ----------------------------------------- ------------------------------------
+  $≫$ C++03                             $≫$ Unreal Engine 3                       $≫$ User Interface Implementation
+  $≫$ UnrealScript                      $≫$ Scaleform/Flash                       $≫$ Input Handling
+  $≫$ ActionScript 2.0                  $≫$ Perforce                              $>$ Build Systems
+  $≫$ ActionScript 3.0                  $>$ Renderdoc                             $>$ Localization
+  $≈$ PowerShell                        $>$ TeamCity                              $>$ Model-View-Presenter
+  $≈$ C++11/14                          $≈$ Unreal Engine 4                       $≈$ Multiplatform Development
+  $≈$ C\#                               $≈$ Windows Presentation Foundation       $≈$ Entity-Component Systems
+
+Education
+---------
+
+  --------------------------------------------------------------- -------
+  **The Guildhall at SMU**, *Plano, Texas*\                          *May
+  Certificate in Digital Game Development - Specialization in       2015*
+  Software Development                                            
+
+  **Texas A&M University**, *College Station, Texas*\                *May
+  Bachelor of Computer Science                                      2012*
+  --------------------------------------------------------------- -------
