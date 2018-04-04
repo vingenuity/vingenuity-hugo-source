@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col s12 center-align">
+         <h3>{{ .Site.Params.name }}</h3>
+         <h6>{{ .Site.Params.description }}</h6>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+{{ if .Content }}
+   {{ .Content }}
+   <div class="divider"></div>
+{{ end }}

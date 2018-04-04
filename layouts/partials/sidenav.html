@@ -42,6 +42,10 @@
          {{ if .Site.GetPage "section" "project" }}
             <li><a href="/project/">Projects</a></li>
          {{ end }}
+						  
+         {{ if .Site.GetPage "page" "resume" }}
+            <li><a href="/resume/">Resume</a></li>
+         {{ end }}
       </ul>
    </div>
 </div>
