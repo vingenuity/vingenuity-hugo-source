@@ -22,7 +22,7 @@ type = "resume"
 	
 [[resumes]]
    path = "/documents/Kocks_Resume.txt"
-   type = "rst"
+   type = ""
    viewer = "highlight.html"
 +++
 
