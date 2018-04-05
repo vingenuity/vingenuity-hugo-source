@@ -19,3 +19,6 @@
    {{ $contextDictionary := (dict "document" . "page" $ ) }}
 	{{ partial $fullViewerPath $contextDictionary }}
 {{ end }}
+
+{{ partial "footer.html" . }}
+
