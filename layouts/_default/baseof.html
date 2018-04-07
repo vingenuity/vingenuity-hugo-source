@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      {{ .Hugo.Generator }}
+      <title>{{ .Title }}</title>
+		
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+      <!-- Custom CSS -->
+      <link type="text/css" rel="stylesheet" href="/css/hugo-materialized.css"/> 
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <!--Favicon-->
+      <link rel="icon" type="image/png" href="/images/favicon.ico">
+   </head>
+    
+   <body>
+      <!-- Sidebar navigation menu -->
+      {{partial "sidenav.html" . }}
+
+      <main>
+         <div class="container">
+            {{ block "main" . }}
+            {{ end }}
+         </div>
+      </main>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="/js/materialize.min.js"></script>
+      <script type="text/javascript" src="/js/scripts.js"></script>
+   </body>
+
+   <footer>
+      <div class="footer-copyright center-align">
+         <div class="container">
+            <p class="">© {{ .Site.Params.copyrightyear }} {{ .Site.Params.name }}</p>
+         </div>
+      </div>
+   </footer>
+
+</html>
