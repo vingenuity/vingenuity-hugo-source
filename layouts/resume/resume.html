@@ -7,14 +7,12 @@
     </div>
 </div>
 
-<div class="divider"></div>
-
-{{ if .Content }}
-   {{ .Content }}
-   <div class="divider"></div>
-{{ end }}
-
 <div class="card" id="resume-container">
+
+   <div class="card-content">
+      {{ .Content }}
+   </div>
+	
    <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">
          {{ range $.Params.resumes }}
@@ -22,6 +20,7 @@
          {{ end }}
       </ul>
    </div>
+	
    <div class="card-content grey lighten-4">
       {{ range $.Params.resumes }}
          {{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
