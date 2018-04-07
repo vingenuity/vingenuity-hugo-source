@@ -14,11 +14,22 @@
    <div class="divider"></div>
 {{ end }}
 
-{{ range $.Params.resumes }}
-	{{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
-   {{ $contextDictionary := (dict "document" . "page" $ ) }}
-	{{ partial $fullViewerPath $contextDictionary }}
-{{ end }}
+<div class="card" id="resume-container">
+   <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+         {{ range $.Params.resumes }}
+            <li class="tab col s3"><a href="#{{ .id }}">{{ .title }}</a></li>
+         {{ end }}
+      </ul>
+   </div>
+   <div class="card-content grey lighten-4">
+      {{ range $.Params.resumes }}
+         {{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
+         {{ $contextDictionary := (dict "document" . "page" $ ) }}
+         <div id="{{ .id }}" class="video-container">{{ partial $fullViewerPath $contextDictionary }}</div>
+      {{ end }}
+   </div>
+</div>
 
 {{ partial "footer.html" . }}
 
