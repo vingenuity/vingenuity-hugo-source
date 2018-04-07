@@ -2,7 +2,8 @@
 {{ $staticDocumentPath := (printf "/static%s" .document.path) }}
 {{ $absoluteDocumentPath := (printf "%s%s" .page.Site.BaseURL .document.path) }}
 {{ if (fileExists $staticDocumentPath) }}
-	<iframe src={{ $absoluteDocumentPath }} style="border:none;"></iframe>
+	<iframe src={{ $absoluteDocumentPath }} style="border:none;">
+	</iframe>
 {{ else }}
 	{{ (printf "Unable to find file to view at path %s" $staticDocumentPath) }}
 {{ end }}
