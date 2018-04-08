@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<div class="card">
+   <div class="card-content blue darken-2">
+      <div class="row">
+         <div class="col s2 grey lighten-4">
+            <h3 class="center-align black-text" >{{ .Date.Format "02"   }}</h3>
+            <h5 class="center-align grey-text text-darken-2" >{{ .Date.Format "Jan"  }}</h5>
+            <p class="center-align grey-text text-darken-1" >{{ .Date.Format "2006" }}</p>
+         </div>
+         <div class="col s9">
+            <h3 class="grey-text text-lighten-4">{{ title .Title }}</h3>
+            {{ if .Params.subtitle }}
+               <h4 class="italic grey-text text-lighten-2">{{ .Params.subtitle }}</h4>
+            {{ end }}
+         </div>
+      </div>
+   </div>
+	
+   <div class="card-content">
+      <p>{{ .Content }}</p>
+   </div>
+
+	<div class="divider"></div>
+
+   <!-- Since I'm the only one posting here, having a signature seems unnecessary. I'm going to leave the code here for now, however. -->
+   <!--
+   <div class="card-content">
+      <b><a class="black-text" href={{ .Params.author.website }}>{{ .Params.author.name }}</a></b>
+      <p class="italic grey-text text-darken-3">{{ .Params.author.description }}</p>
+   </div>
+   -->
+
+   <div class="card-content">
+      {{ partial "socialshare.html" . }}
+   </div>
+</div>
+{{ end }}

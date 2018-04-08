@@ -1,6 +1,7 @@
 +++
 title = "New Post"
 subtitle = ""
+date = "2000-01-01"
 Description = ""
 Tags = []
 Categories = []
