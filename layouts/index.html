@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+{{ if .Content }}
+   <div class="section">
+      <p>{{ .Content }}</p>
+   </div>
+   <div class="divider"></div>
+{{ end }}
+
+{{ $projectCount := len (where .Site.RegularPages "Section" "==" "project") }}
+{{ if gt $projectCount 0 }}
+   <h4>Recent Projects:</h4>
+   {{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "project") }} 
+      {{ if eq .Type "project" }}
+		   {{ partial "card-post-summary.html" . }}
+      {{ end }} 
+   {{ end }}
+	
+   <div class="section center-align">
+      <a class="waves-effect waves-light btn" href="/project/">View all projects</a>
+   </div>
+   <div class="divider"></div>
+{{ end }}
+
+{{ $postCount := len (where .Site.RegularPages "Section" "==" "post") }}
+{{ if gt $postCount 0 }}
+   <h4>Recent Posts:</h4>
+   {{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "post") }} 
+      {{ if eq .Type "post" }}
+         {{ partial "card-post-summary.html" . }}
+      {{ end }} 
+   {{ end }}
+	
+   <div class="section center-align">
+      <a class="waves-effect waves-light btn" href="/post/">View all posts</a>
+   </div>
+   <div class="divider"></div>
+{{ end }}
+
+{{ end }}
