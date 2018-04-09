@@ -23,9 +23,16 @@
 	
    <div class="card-content grey lighten-4">
       {{ range $.Params.resumes }}
-         {{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
-         {{ $contextDictionary := (dict "document" . "page" $ ) }}
-         <div id="{{ .id }}" class="video-container">{{ partial $fullViewerPath $contextDictionary }}</div>
+         <div id="{{ .id }}">
+		      <div class="video-container">
+               {{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
+               {{ $contextDictionary := (dict "document" . "page" $ ) }}
+		         {{ partial $fullViewerPath $contextDictionary }}
+		      </div>
+		      <div class="row">
+		         <a class="col s12 btn-large waves-effect waves-light blue lighten-2" href="{{ .path }}" download><i class="material-icons center">file_download</i>Download</a>
+		      </div>
+			</div>
       {{ end }}
    </div>
 </div>
