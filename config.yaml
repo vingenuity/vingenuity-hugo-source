@@ -6,7 +6,7 @@ theme: "hugo-materialized"
 params:
   description: "Game Programmer"
   name: "Vincent Kocks"
-  ownerEmailAddress: "howlingblue@gmail.com"
+  ownerEmailAddress: "vincent@vingenuity.net"
   ownerGitHubUsername: "vingenuity"
   ownerTwitterUsername: "kvingenuity"
   sidenav: "/images/vingenuity-logo.png"
