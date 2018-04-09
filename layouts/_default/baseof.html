@@ -2,7 +2,7 @@
 <html>
    <head>
       {{ .Hugo.Generator }}
-      <title>{{ .Title }}</title>
+      <title> {{ .Site.Title }} {{ if .Page.Title }} - {{ .Page.Title }} {{ end }} </title>
 		
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>

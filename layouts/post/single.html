@@ -3,7 +3,7 @@
 <div class="card">
    <div class="card-content blue darken-2">
       <div class="row">
-         <div class="col s2 grey lighten-4">
+         <div class="col s2 grey lighten-4 z-depth-1">
             <h3 class="center-align black-text" >{{ .Date.Format "02"   }}</h3>
             <h5 class="center-align grey-text text-darken-2" >{{ .Date.Format "Jan"  }}</h5>
             <p class="center-align grey-text text-darken-1" >{{ .Date.Format "2006" }}</p>
@@ -35,4 +35,5 @@
       {{ partial "socialshare.html" . }}
    </div>
 </div>
+
 {{ end }}
