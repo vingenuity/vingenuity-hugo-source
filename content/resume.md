@@ -25,11 +25,4 @@ type = "resume"
    title = "DOCX"
    type = "docx"
    viewer = "google-docs.html"
-	
-[[resumes]]
-   id = "txt"
-   path = "/documents/Kocks_Resume.txt"
-   title = "TXT"
-   type = ""
-   viewer = "highlight.html"
 +++

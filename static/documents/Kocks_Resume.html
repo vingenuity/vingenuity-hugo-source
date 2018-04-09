@@ -19,7 +19,7 @@
 <body>
 <style>
    /* Resume Header and Sections */
-   h2, table:nth-child(1) {
+   h2, table:first-of-type {
       background: #0f3077;
       border-radius: 5px;
       border-spacing: 0px;
@@ -53,10 +53,10 @@
    }
 
    /* Contact Info Cell */
-   table:nth-child(1) td:nth-child(3) {
+   table:first-of-type tr:first-child td:nth-child(3) {
       font-family: Arial;
       font-size: 12pt;
-      padding: 0.5em;
+      padding-right: 0.5em;
    }
 
    h3, [data-custom-style="Skills"] {
@@ -80,12 +80,13 @@
       background: #ffffff;
       color: #000000;
       font-family: Arial;
-      font-size: 11pt;
+      font-size: 10pt;
    }
 
    #projects td {
       border-bottom: 1px solid;
       vertical-align: top;
+      padding: 0em;
    }
 
    #skills table {
@@ -93,30 +94,44 @@
       background: #ffffff;
       border-bottom: 1px solid;
    }
+    
+    #skills td {
+      font-family: Arial;
+      font-size: 10pt;
+      padding-right: 0em;
+    }
 
    #skills p {
       margin: 0px;
         padding: 0px;
    }
 
-   /* Skills "Bullets" */
+   /* Skills "Bullets" (NOTE: This is a span, not a paragraph!)*/
    .math.inline {
       color: blue;
       font-family: "Courier New";
       font-size: 12pt;
+        float: left;
+        padding-left: 0.5em;
+        text-align: center;
+        width: 20px;
    }
 
    #education table {
+      background: white;
+      color: black;
       align: center;
-      margin-left: 4%;
-      margin-right: 4%;
-      width: 92%;
+      font-family: Arial;
+      font-size: 11pt;
+      margin-left: 2%;
+      margin-right: 2%;
+      width: 96%;
    }
 
    #education td {
       color: black;
-      padding-left: 2em; 
-      text-indent: -2em;
+      padding-left: 1em; 
+      text-indent: -1em;
       vertical-align: top;
    }
 </style>
