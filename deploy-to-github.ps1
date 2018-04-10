@@ -45,6 +45,7 @@ if(!$commit_msg)
 Write-Host $commit_msg
 
 Set-Location "public"
+& git pull origin master
 & git add "."
 & git commit -m $commit_msg
 & git push origin HEAD:master
