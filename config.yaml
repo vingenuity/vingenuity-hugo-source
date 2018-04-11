@@ -10,3 +10,11 @@ params:
   ownerGitHubUsername: "vingenuity"
   ownerTwitterUsername: "kvingenuity"
   sidenav: "/images/vingenuity-logo.png"
+  
+  developer_titles:
+    artist: "Artist"
+    designer: "Designer"
+    producer: "Producer"
+    programmer: "Programmer"
+    qa: "QA Tester"
+  
