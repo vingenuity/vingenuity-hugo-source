@@ -1,0 +1,141 @@
+{{ define "main" }}
+
+
+<div class="card">
+
+   <div class="card-content">
+   </div>
+	
+   <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+         <li class="tab col s3"><a href="#details">Details</a></li>
+         <li class="tab col s3"><a href="#multimedia">Multimedia</a></li>
+         <li class="tab col s3"><a href="#roles">Roles</a></li>
+         <li class="tab col s3"><a href="#work-samples">Samples</a></li>
+         <li class="tab col s3"><a href="#downloads">Downloads</a></li>
+      </ul>
+   </div>
+	
+   <div class="card-content grey lighten-4">
+      <div id="details">
+         <h4>Overview</h4>
+         <p>{{ .Content }}</p>
+			
+         <h4>Statistics</h4>
+			<ul class="browser-default">
+		      <li><span class="stat-header">Project:</span>
+				<ul class="browser-default">
+					{{ if isset .Params.project "type" }}
+					<li><span class="stat-header">Type: </span>{{ .Params.project.type }}
+					{{ end }}
+					
+					{{ if isset .Params.project "development_dates" }}
+						{{ $start_date_as_time := ( time .Params.project.development_dates.start ) }}
+						{{ $end_date_as_time := ( time .Params.project.development_dates.end ) }}
+						{{ $formatted_date_start := ( $start_date_as_time.Format "Jan 2006" ) }}
+						{{ $formatted_date_end := ( $end_date_as_time.Format "Jan 2006" ) }}
+						{{ $date_span_years := ( sub $end_date_as_time.Year $start_date_as_time.Year ) }}
+						{{ $date_span_months := ( add (mul $date_span_years 12 ) ( sub $end_date_as_time.Month $start_date_as_time.Month ) ) }}
+					<li><span class="stat-header">Developed: </span>{{ $formatted_date_start }} - {{ $formatted_date_end }} ({{ $date_span_months }} Months)
+					{{ end }}
+					
+					{{ if isset .Params.project "engine" }}
+					<li><span class="stat-header">Engine: </span>{{ .Params.project.engine }}
+					{{ end }}
+					
+					{{ if isset .Params.project "platforms" }}
+					<li><span class="stat-header">Platforms:</span>
+					<ul class="browser-default">
+                  {{ range .Params.project.platforms }}
+						<li>{{ . }}
+						{{ end }}
+			      </ul>
+					{{ end }}
+				</ul>
+				
+		      <li><span class="stat-header">Team:</span>
+				<ul class="browser-default">
+					{{ if isset .Params.team "name" }}
+					<li><span class="stat-header">Name: </span>{{ .Params.team.name }}
+					{{ end }}
+					
+					{{ if isset .Params.team "developer_counts" }}
+					
+						{{ $.Scratch.Set "total_developer_count" 0 }}
+						{{ range .Params.team.developer_counts }}
+							{{ $.Scratch.Add "total_developer_count" . }}
+						{{ end }}
+					<li><span class="stat-header">Developers: </span>{{ $.Scratch.Get "total_developer_count" }}
+					
+					<ul class="browser-default">
+                  {{ range $developer_key, $developer_count := .Params.team.developer_counts }}
+							{{ if gt $developer_count 0 }}
+								{{ $.Scratch.Set "developer_title" (index $.Site.Params.developer_titles $developer_key) }}
+								{{ if gt $developer_count 1 }}
+									{{ $.Scratch.Set "developer_title" ( pluralize ( $.Scratch.Get "developer_title" ) ) }}
+								{{ end }}
+						<li>{{ $developer_count }} {{ $.Scratch.Get "developer_title" }}
+							{{ end }}
+						{{ end }}
+			      </ul>
+					{{ end }}
+				</ul>
+			</ul>
+      </div>
+		
+      <div id="multimedia">
+			{{ range .Params.multimedia }}
+				{{ if eq .type "video" }}
+					<div class="video-container">
+						<iframe src="{{ .src }}" width="{{ .width }}" height="{{ .height }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				{{ else if eq .type "image" }}
+					{{ if or ( isset . "width" ) ( isset . "height" ) }}
+						<img class="materialboxed" src="{{ .src }}" width="{{ .width }}" height="{{ .height }}">
+					{{ else }}
+						<img class="responsive-img materialboxed" src="{{ .src }}">
+					{{ end }}
+				{{ end }}
+			{{ end }}
+		</div>
+		
+      <div id="roles">
+			{{ range .Params.roles }}
+			   <h4>{{ .title }}</h4>
+				<ul class="browser-default">
+				{{ range .responsibilities }}
+					<li> {{ . }}
+				{{ end }}
+				</ul>
+			{{ end }}
+		</div>
+		
+		{{ with .Params.downloads }}
+      <div id="downloads">
+			{{ $executable_downloads := where . "type" "executable" }}
+			{{ if gt (len $executable_downloads) 0 }}
+				<h4>Executables:</h4>
+				<ul class="browser-default">
+			   {{ range $executable_downloads }}
+					<li> <a href="{{ .src }}">{{ .text }}</a>
+			   {{ end }}
+				</ul>
+			{{ end }}
+			
+			{{ $source_downloads := where . "type" "source" }}
+			<h4>Source:</h4>
+			{{ if gt (len $source_downloads) 0 }}
+				<ul class="browser-default">
+			   {{ range $source_downloads }}
+					<li> <a href="{{ .src }}">{{ .text }}</a>
+			   {{ end }}
+				</ul>
+			{{ else }}
+				<p>The source for this project is currently unavailable.</p>
+			{{ end }}
+		</div>
+		{{ end }}
+   </div>
+</div>
+
+{{ end }}
