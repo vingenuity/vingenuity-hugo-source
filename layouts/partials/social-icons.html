@@ -1,0 +1,28 @@
+
+{{ if isset .owner "phonenumber" }}
+	<a class="social-icon" href="tel:{{ .owner.phonenumber }}"><i class="hoverable fa fa-phone {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
+
+{{ if isset .owner "emailaddress" }}
+	<a class="social-icon" href="mailto:{{ .owner.emailaddress }}"><i class="hoverable fa fa-envelope {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
+
+{{ if isset .owner "facebookslug" }}
+	<a class="social-icon" href="https://facebook.com/{{ .owner.facebookslug }}"><i class="hoverable fa fa-facebook-square {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
+
+{{ if isset .owner "githubusername" }}
+	<a class="social-icon" href="https://github.com/{{ .owner.githubusername }}"><i class="hoverable fa fa-github {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
+
+{{ if isset .owner "linkedinslug" }}
+	<a class="social-icon" href="https://www.linkedin.com/in/{{ .owner.linkedinslug }}"><i class="hoverable fa fa-linkedin-square {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
+
+{{ if isset .owner "skypeusername" }}
+	<a class="social-icon" href="skype:{{ .owner.skypeusername }}?userinfo"><i class="hoverable fa fa-skype {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
+
+{{ if isset .owner "twitterusername" }}
+	<a class="social-icon" href="https://twitter.com/{{ .owner.twitterusername }}"><i class="hoverable fa fa-twitter {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}

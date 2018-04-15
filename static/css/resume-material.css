@@ -3,13 +3,28 @@
 	width: 100%;
 }
 
-.sidenav .user-view .social-frame {
-}
-
 .sidenav .user-view .text-frame {
 	position: absolute;
-	bottom: 8px;
+	font-size: 40pt;
+	bottom: 45px;
 	left: 8px;
+}
+
+.sidenav .user-view p {
+	line-height: 30px;
+	margin: 0px;
+}
+
+.sidenav .user-view #name-text {
+	font-size: 20pt;
+}
+
+.sidenav .user-view #description-text {
+	font-size: 15pt;
+}
+
+.social-icon {
+	margin-right: 5px;
 }
 
 .stat-header {

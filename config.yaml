@@ -4,17 +4,20 @@ title: "Vingenuity"
 theme: "hugo-materialized"
 
 params:
-  description: "Game Programmer"
-  name: "Vincent Kocks"
-  ownerEmailAddress: "vincent@vingenuity.net"
-  ownerGitHubUsername: "vingenuity"
-  ownerTwitterUsername: "kvingenuity"
+  owner:
+    name: "Vincent Kocks"
+    description: "Game Programmer"
+    emailAddress: "vincent@vingenuity.net"
+    gitHubUsername: "vingenuity"
+    linkedInSlug: "vingenuity"
+    skypeUsername: "vingenuity"
 
   sideNav:
     backgroundColor: blue darken-4
     header:
       backgroundImage: "/images/vingenuity-logo.png"
       iconColor: white
+      iconSize: lg
       textColor: white
     menu:
       useIcons: true
