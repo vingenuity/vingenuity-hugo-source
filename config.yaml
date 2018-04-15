@@ -9,7 +9,21 @@ params:
   ownerEmailAddress: "vincent@vingenuity.net"
   ownerGitHubUsername: "vingenuity"
   ownerTwitterUsername: "kvingenuity"
-  sidenav: "/images/vingenuity-logo.png"
+
+  sideNav:
+    backgroundColor: blue darken-4
+    header:
+      backgroundImage: "/images/vingenuity-logo.png"
+      iconColor: white
+      textColor: white
+    menu:
+      useIcons: true
+      iconColor: white
+      textColor: white
+      icons:
+        post: border_color
+        project: build
+        resume: description
   
   developer_titles:
     artist: "Artist"

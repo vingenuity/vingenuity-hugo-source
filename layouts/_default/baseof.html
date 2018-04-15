@@ -21,8 +21,53 @@
    </head>
     
    <body>
-      <!-- Sidebar navigation menu -->
-      {{partial "sidenav.html" . }}
+      <ul id="slide-out" class="sidenav sidenav-fixed {{ .Site.Params.sideNav.backgroundColor }}">
+		
+			<!-- Header Image, Title, and Contact Information -->
+			{{ if isset .Site.Params.sideNav.header "iconcolor" }}
+				{{ $.Scratch.Set "headerIconColorClass" (printf " %s-text" .Site.Params.sideNav.header.iconColor) }}
+			{{ end }}
+			{{ if isset .Site.Params.sideNav.header "textcolor" }}
+				{{ $.Scratch.Set "headerTextColorClass" (printf " %s-text" .Site.Params.sideNav.header.textColor) }}
+			{{ end }}
+         <li><div class="user-view">
+				<div class="background-frame">
+               <img class="background-image" src="{{ .Site.Params.sideNav.header.backgroundImage }}">
+				</div>
+				<div class="text-frame">
+               <span class="name{{ $.Scratch.Get "headerTextColorClass" }}">{{ .Site.Params.name }}</span>
+					  <!-- email -->
+        <a class="social-buttons" href=mailto:{{ .Site.Params.ownerEmailAddress }}><i class="hoverable fa fa-lg fa-envelope-o{{ $.Scratch.Get "headerIconColorClass" }}"></i></a>
+        <!-- github -->
+        <a class="social-buttons" href="https://github.com/{{ .Site.Params.ownerGitHubUsername }}"><i class="hoverable fa fa-lg fa-github{{ $.Scratch.Get "headerIconColorClass" }}"></i></a>
+        <!-- twitter -->
+        <a class="social-buttons" href="https://twitter.com/{{ .Site.Params.ownerTwitterUsername }}"><i class="hoverable fa fa-lg fa-twitter{{ $.Scratch.Get "headerIconColorClass" }}"></i></a>
+				</div>
+         </div></li>
+			
+			<!-- Site Menu -->
+			{{ if isset .Site.Params.sideNav.menu "iconcolor" }}
+				{{ $.Scratch.Set "menuIconColorClass" (printf " %s-text" .Site.Params.sideNav.menu.iconColor) }}
+			{{ end }}
+			{{ if isset .Site.Params.sideNav.menu "textcolor" }}
+				{{ $.Scratch.Set "menuTextColorClass" (printf " %s-text" .Site.Params.sideNav.menu.textColor) }}
+			{{ end }}
+         <li><a href="/">
+				{{ if eq .Site.Params.sideNav.menu.useIcons true }}
+			   <i class="material-icons{{ $.Scratch.Get "menuIconColorClass" }}">home</i>
+				{{ end }}
+			   <span class={{ $.Scratch.Get "menuTextColorClass" }}>Home</span>
+			</a></li>
+			{{ range .Site.Sections }}
+            <li><a href="{{ .Permalink }}">
+					{{ if isset .Site.Params.sideNav.menu.icons .Section | and (eq .Site.Params.sideNav.menu.useIcons true) }}
+					<i class="material-icons{{ $.Scratch.Get "menuIconColorClass" }}">{{ index .Site.Params.sideNav.menu.icons .Section }}</i>
+					{{ end }}
+				   <span class={{ $.Scratch.Get "menuTextColorClass" }}>{{ .Title }}</span>
+				</a></li>
+         {{ end }}
+      </ul>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
       <main>
          <div class="container">
@@ -32,7 +77,7 @@
       </main>
 
       <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="/js/materialize.min.js"></script>
       <script type="text/javascript" src="/js/scripts.js"></script>
    </body>
