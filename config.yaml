@@ -4,6 +4,7 @@ title: "Vingenuity"
 theme: "hugo-materialized"
 
 params:
+  copyrightyear: 2018
   owner:
     name: "Vincent Kocks"
     description: "Game Programmer"
