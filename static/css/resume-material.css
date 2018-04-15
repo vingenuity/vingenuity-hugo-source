@@ -1,3 +1,17 @@
+.sidenav .user-view .background-image {
+	margin-top: -32px;
+	width: 100%;
+}
+
+.sidenav .user-view .social-frame {
+}
+
+.sidenav .user-view .text-frame {
+	position: absolute;
+	bottom: 8px;
+	left: 8px;
+}
+
 .stat-header {
 	font-weight: bold;
-|}
+}
