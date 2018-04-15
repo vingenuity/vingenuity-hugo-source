@@ -22,11 +22,12 @@ params:
     menu:
       useIcons: true
       iconColor: white
+      iconSize: 2x
       textColor: white
       icons:
-        post: border_color
-        project: build
-        resume: description
+        project: wrench
+        post: edit
+        resume: paperclip
   
   developer_titles:
     artist: "Artist"

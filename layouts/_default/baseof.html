@@ -52,21 +52,24 @@
 			{{ if isset .Site.Params.sideNav.menu "iconcolor" }}
 				{{ $.Scratch.Set "menuIconColorClass" (printf " %s-text" .Site.Params.sideNav.menu.iconColor) }}
 			{{ end }}
+			{{ if isset .Site.Params.sideNav.menu "iconsize" }}
+				{{ $.Scratch.Set "menuIconSizeClass" (printf " fa-%s" .Site.Params.sideNav.menu.iconSize) }}
+			{{ end }}
 			{{ if isset .Site.Params.sideNav.menu "textcolor" }}
 				{{ $.Scratch.Set "menuTextColorClass" (printf " %s-text" .Site.Params.sideNav.menu.textColor) }}
 			{{ end }}
          <li><a href="/">
 				{{ if eq .Site.Params.sideNav.menu.useIcons true }}
-			   <i class="material-icons{{ $.Scratch.Get "menuIconColorClass" }}">home</i>
+			   <i class="fa fa-home {{ $.Scratch.Get "menuIconColorClass" }} {{ $.Scratch.Get "menuIconSizeClass" }}"></i>
 				{{ end }}
-			   <span class={{ $.Scratch.Get "menuTextColorClass" }}>Home</span>
+			   <span class="{{ $.Scratch.Get "menuTextColorClass" }}">Home</span>
 			</a></li>
 			{{ range .Site.Sections }}
             <li><a href="{{ .Permalink }}">
 					{{ if isset .Site.Params.sideNav.menu.icons .Section | and (eq .Site.Params.sideNav.menu.useIcons true) }}
-					<i class="material-icons{{ $.Scratch.Get "menuIconColorClass" }}">{{ index .Site.Params.sideNav.menu.icons .Section }}</i>
+					<i class="fa fa-{{ index .Site.Params.sideNav.menu.icons .Section }} {{ $.Scratch.Get "menuIconColorClass" }} {{ $.Scratch.Get "menuIconSizeClass" }}"></i>
 					{{ end }}
-				   <span class={{ $.Scratch.Get "menuTextColorClass" }}>{{ .Title }}</span>
+				   <span class="{{ $.Scratch.Get "menuTextColorClass" }}">{{ .Title }}</span>
 				</a></li>
          {{ end }}
       </ul>
