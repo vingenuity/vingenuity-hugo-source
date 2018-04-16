@@ -61,7 +61,17 @@
 			{{ $sideNavMenuArgs := dict "page" . "menu" .Site.Menus.main "menuIndex" "main" "iconColorClass" $menuIconColorClass "iconSizeClass" $menuIconSizeClass "textColorClass" $menuTextColorClass }}
 			{{ partial "side-navigation-menu.html" $sideNavMenuArgs }}
       </ul>
-      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		
+		<nav class="hide-on-large-only">
+			{{ $navBackgroundColor := cond ( isset .Site.Params.topNav "backgroundcolor" ) .Site.Params.topNav.backgroundColor "" }}
+			<div class="nav-wrapper {{ $navBackgroundColor }}">
+				<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-2x"></i></a>
+				<div class="brand-logo center">
+               <img class="left" src="{{ .Site.Params.topNav.logo }}">
+					{{ .Site.Params.topNav.text }}
+				</div>
+			</div>
+		</nav>
 
       <main>
          <div class="container">

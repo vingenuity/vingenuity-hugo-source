@@ -30,3 +30,8 @@
 .stat-header {
 	font-weight: bold;
 }
+
+.nav-wrapper img {
+	width: 50px;
+	height: 50px;
+}

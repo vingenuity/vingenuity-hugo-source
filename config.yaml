@@ -51,6 +51,11 @@ params:
         project: wrench
         post: edit
         resume: paperclip
+        
+  topNav:
+    backgroundColor: blue darken-4
+    logo: "/images/vingenuity-logo.png"
+    text: "Vincent Kocks"
   
   developer_titles:
     artist: "Artist"
