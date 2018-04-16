@@ -58,20 +58,8 @@
 			{{ $menuTextColor := cond ( isset .Site.Params.sideNav.menu "textcolor" ) .Site.Params.sideNav.menu.textColor "black" }}
 			{{ $menuTextColorClass := printf " %s-text" $menuTextColor }}
 			
-         <li><a href="/">
-				{{ if eq .Site.Params.sideNav.menu.useIcons true }}
-			   <i class="fa fa-home {{ $menuIconColorClass }} {{ $menuIconSizeClass }}"></i>
-				{{ end }}
-			   <span class="{{ $menuTextColorClass }}">Home</span>
-			</a></li>
-			{{ range .Site.Sections }}
-            <li><a href="{{ .Permalink }}">
-					{{ if isset .Site.Params.sideNav.menu.icons .Section | and (eq .Site.Params.sideNav.menu.useIcons true) }}
-					<i class="fa fa-{{ index .Site.Params.sideNav.menu.icons .Section }} {{ $menuIconColorClass }} {{ $menuIconSizeClass }}"></i>
-					{{ end }}
-				   <span class="{{ $menuTextColorClass }}">{{ .Title }}</span>
-				</a></li>
-         {{ end }}
+			{{ $sideNavMenuArgs := dict "page" . "menu" .Site.Menus.main "menuIndex" "main" "iconColorClass" $menuIconColorClass "iconSizeClass" $menuIconSizeClass "textColorClass" $menuTextColorClass }}
+			{{ partial "side-navigation-menu.html" $sideNavMenuArgs }}
       </ul>
       <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 

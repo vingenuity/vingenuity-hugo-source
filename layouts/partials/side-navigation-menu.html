@@ -1,0 +1,41 @@
+
+{{ $iconTable := .page.Site.Params.sidenav.menu.icons }}
+{{ range .menu }}
+	{{ if .HasChildren }}
+		<li class="{{ if $.page.HasMenuCurrent $.menuIndex . }}active{{ end }}">
+			<a href="{{ .URL }}">
+				{{ .Pre }}
+				{{ if isset $iconTable .Identifier }}
+					<i class="fa fa-{{ index $iconTable .Identifier }} {{ $.iconColorClass }} {{ $.iconSizeClass }}"></i>
+				{{ end }}
+				<span class="{{ $.textColorClass }}">{{ .Name }}</span>
+				{{ .Post }}
+			</a>
+		</li>
+		<ul class="sub-menu">
+			{{ range .Children }}
+				<li class="{{ if $.page.IsMenuCurrent $.menuIndex  . }}active{{ end }}">
+					<a href="{{ .URL }}">
+						{{ .Pre }}
+						{{ if isset $iconTable .Identifier }}
+							<i class="fa fa-{{ index $iconTable .Identifier }} {{ $.iconColorClass }} {{ $.iconSizeClass }}"></i>
+						{{ end }}
+						<span class="{{ $.textColorClass }}">{{ .Name }}</span>
+						{{ .Post }}
+					</a>
+				</li>
+			{{ end }}
+		</ul>
+	{{ else }}
+		<li class="{{ if $.page.IsMenuCurrent $.menuIndex . }}active{{ end }}">
+			<a href="{{ .URL }}">
+				{{ .Pre }}
+				{{ if isset $iconTable .Identifier }}
+					<i class="fa fa-{{ index $iconTable .Identifier }} {{ $.iconColorClass }} {{ $.iconSizeClass }}"></i>
+				{{ end }}
+				<span class="{{ $.textColorClass }}">{{ .Name }}</span>
+				{{ .Post }}
+			</a>
+		</li>
+	{{ end }}
+{{ end }}

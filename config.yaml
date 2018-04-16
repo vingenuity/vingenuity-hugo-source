@@ -2,9 +2,31 @@ baseurl: "https://vingenuity.github.io/"
 languageCode: "en-us"
 title: "Vingenuity"
 theme: "hugo-materialized"
+  
+menu:
+  main:
+    - identifier: home
+      icon: home
+      name: Home
+      url: /
+      weight: 100
+    - identifier: project
+      icon: wrench
+      name: Projects
+      url: /project/
+      weight: 200
+    - identifier: post
+      name: Posts
+      url: /post/
+      weight: 300
+    - identifier: resume
+      name: Resume
+      url: /resume/
+      weight: 400
 
 params:
   creationYear: 2014
+
   owner:
     name: "Vincent Kocks"
     description: "Game Programmer"
@@ -21,11 +43,11 @@ params:
       iconSize: lg
       textColor: white
     menu:
-      useIcons: true
       iconColor: white
       iconSize: 2x
       textColor: white
       icons:
+        home: home
         project: wrench
         post: edit
         resume: paperclip
