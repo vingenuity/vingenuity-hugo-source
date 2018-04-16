@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<h3>{{ .Page.Title }}</h3>
+
+<div class="row">
+	{{ range .Data.Pages }} <!-- Will only loop projects, due to the scope of this file -->
+		<div class="col s12 m6">
+			{{ partial "card-project.html" . }}
+		</div>
+	{{ end }}
+</div>
+
+{{ end }}

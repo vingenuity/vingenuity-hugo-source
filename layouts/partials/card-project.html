@@ -1,0 +1,27 @@
+
+  <div class="card hoverable">
+    <div class="card-image  blue darken-2">
+      <img src="{{ .Params.logo }}">
+      <span class="card-title">{{ .Title }}</span>
+    </div>
+	 
+	 {{ if .Params.showSummaryInSectionPage }}
+    <div class="card-content  blue darken-2">
+      <blockquote>{{ .Summary }}</blockquote>
+    </div>
+	 {{ end }}
+	 
+    <div class="card-action">
+        <a href="{{ .Permalink }}">Details</a>
+		  
+        <a href="{{ .Params.siteAddress }}">Website</a>
+		  
+			{{ with .Params.downloads }}
+				{{ $source_downloads := where . "type" "source" }}
+				{{ if gt (len $source_downloads) 0 }}
+					{{ $firstSourceDownload := index $source_downloads 0 }}
+					<a href="{{ $firstSourceDownload.src }}">{{ $firstSourceDownload.text }}</a>
+				{{ end }}
+			{{ end }}
+    </div>
+  </div>

@@ -1,6 +1,8 @@
 ---
 title:  "Super Slash n' Grab"
 logo: "/images/ssng/logo_large.png"
+showSummaryInSectionPage: false
+siteAddress: "http://www.indiedb.com/games/super-slash-n-grab"
 
 project:
    engine: "UDK"
@@ -42,6 +44,10 @@ downloads:
    - { type: "source", icon: "", text: "GitHub", src: "https://github.com/vingenuity/ssng-source" }
 ---
 
-Super Slash 'n Grab is a four-player "hack and stash" game in the style of arcade classics like Gauntlet. Players take on the role of a group of thieves who are on a quest to retrieve their stolen Thieves' Code from the evil King's Guard.
+Super Slash 'n Grab is a four-player "hack and stash" game in the style of arcade classics like Gauntlet.
+
+<!--more-->
+
+Players take on the role of a group of thieves who are on a quest to retrieve their stolen Thieves' Code from the evil King's Guard.
 
 While players are technically working as a team, their true objective is to be the richest thieves at the end of each level. To that end, players betray each other by pushing their "friends" into traps and guards so that they can steal their gold.

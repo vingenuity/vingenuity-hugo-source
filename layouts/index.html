@@ -10,11 +10,15 @@
 {{ $projectCount := len (where .Site.RegularPages "Section" "==" "project") }}
 {{ if gt $projectCount 0 }}
    <h4>Recent Projects:</h4>
-   {{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "project") }} 
-      {{ if eq .Type "project" }}
-		   {{ partial "card-post-summary.html" . }}
-      {{ end }} 
-   {{ end }}
+	<div class="row">
+		{{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "project") }} 
+			{{ if eq .Type "project" }}
+				<div class="col s12 m6">
+					{{ partial "card-project.html" . }}
+				</div>
+			{{ end }} 
+		{{ end }}
+	</div>
 	
    <div class="section center-align">
       <a class="waves-effect waves-light btn" href="/project/">View all projects</a>
