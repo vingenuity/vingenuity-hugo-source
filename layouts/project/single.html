@@ -4,7 +4,9 @@
 <div class="card">
 	<div class="card-image blue darken-2">
 		<img src="{{ .Params.logo }}">
-		<span class="card-title">{{ .Title }}</span>
+		{{ if ( eq .Params.showTitleInSinglePage true ) }}
+			<span class="card-title">{{ .Title }}</span>
+		{{ end }}
 	</div>
 	
    <div class="card-tabs">

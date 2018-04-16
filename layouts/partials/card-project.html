@@ -2,7 +2,9 @@
   <div class="card hoverable">
     <div class="card-image  blue darken-2">
       <img src="{{ .Params.logo }}">
-      <span class="card-title">{{ .Title }}</span>
+		{{ if ( eq .Params.showTitleInSectionPage true ) }}
+			<span class="card-title">{{ .Title }}</span>
+		{{ end }}
     </div>
 	 
 	 {{ if .Params.showSummaryInSectionPage }}

@@ -2,6 +2,8 @@
 title:  "Super Slash n' Grab"
 logo: "/images/ssng/logo_large.png"
 showSummaryInSectionPage: false
+showTitleInSectionPage: false
+showTitleInSinglePage: false
 siteAddress: "http://www.indiedb.com/games/super-slash-n-grab"
 
 project:

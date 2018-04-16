@@ -2,6 +2,8 @@
 title:  "Akhet"
 logo: "/images/akhet/logo_large.png"
 showSummaryInSectionPage: false
+showTitleInSectionPage: false
+showTitleInSinglePage: false
 
 project:
    engine: "UDK"
