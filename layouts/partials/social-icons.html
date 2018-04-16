@@ -26,3 +26,7 @@
 {{ if isset .owner "twitterusername" }}
 	<a class="social-icon" href="https://twitter.com/{{ .owner.twitterusername }}"><i class="hoverable fa fa-twitter {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
 {{ end }}
+
+{{ if isset .owner "vimeoslug" }}
+	<a class="social-icon" href="https://vimeo.com/{{ .owner.vimeoslug }}"><i class="hoverable fa fa-vimeo {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
+{{ end }}
