@@ -7,7 +7,7 @@ siteAddress: "http://www.indiedb.com/games/super-slash-n-grab"
 project:
    engine: "UDK"
    platforms: [ "Windows" ]
-   development_dates: { start: 2014-01-01, end: 2014-05-01 }
+   development_dates: { start: 2014-06-01, end: 2014-12-01 }
    type: "Game"
 
 team:
@@ -20,7 +20,7 @@ team:
       qa: 0
 
 multimedia:
-   - { type: "video", src: "https://player.vimeo.com/video/117705100", width: 640, height: 291 }
+   - { type: "video", src: "https://player.vimeo.com/video/117505076", width: 640, height: 360 }
    - { type: "image", src: "/images/ssng/gameplay.jpg" }
    - { type: "image", src: "/images/ssng/map-screen.jpg" }
 
