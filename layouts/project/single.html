@@ -108,6 +108,15 @@
 			{{ end }}
 		</div>
 		
+      <div id="work-samples">
+		   {{ with .Params.workSamples }}
+			   {{ range .Params.workSamples }}
+			   {{ end }}
+			{{ else }}
+			   <p>No work samples are currently available for this project.</p>
+			{{ end }}
+		</div>
+		
 		{{ with .Params.downloads }}
       <div id="downloads">
 			{{ $executable_downloads := where . "type" "executable" }}
