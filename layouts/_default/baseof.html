@@ -91,7 +91,19 @@
    <footer>
       <div class="footer-copyright center-align">
          <div class="container">
-            <p class="">© {{ .Site.Params.copyrightyear }} {{ .Site.Params.owner.name }}</p>
+			   {{ if isset .Site.Params "creationyear" }}
+				   {{ $.Scratch.Set "creationYear" .Site.Params.creationYear }}
+				{{ else }}
+				   {{ $.Scratch.Set "creationYear" now.Year }}
+			   {{ end }}
+				
+			   {{ if eq ( $.Scratch.Get "creationYear" ) now.Year }}
+				   {{ $.Scratch.Set "copyrightDateSpan" now.Year }}
+				{{ else }}
+				   {{ $.Scratch.Set "copyrightDateSpan" (printf "%d-%d" ( $.Scratch.Get "creationYear" ) now.Year) }}
+			   {{ end }}
+				
+            <p class="">© {{ $.Scratch.Get "copyrightDateSpan" }} {{ .Site.Params.owner.name }}</p>
          </div>
       </div>
    </footer>
