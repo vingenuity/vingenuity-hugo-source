@@ -82,7 +82,8 @@
       </div>
 		
       <div id="multimedia">
-			{{ range .Params.multimedia }}
+			{{ with .Params.multimedia }}
+			{{ range . }}
 				{{ if eq .type "video" }}
 					<div class="video-container">
 						<iframe src="{{ .src }}" width="{{ .width }}" height="{{ .height }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -94,6 +95,9 @@
 						<img class="responsive-img materialboxed" src="{{ .src }}">
 					{{ end }}
 				{{ end }}
+			{{ end }}
+			{{ else }}
+				<p>No media is currently available for this project.</p>
 			{{ end }}
 		</div>
 		
@@ -110,7 +114,7 @@
 		
       <div id="work-samples">
 		   {{ with .Params.workSamples }}
-			   {{ range .Params.workSamples }}
+			   {{ range . }}
 			   {{ end }}
 			{{ else }}
 			   <p>No work samples are currently available for this project.</p>
