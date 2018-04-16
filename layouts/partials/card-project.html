@@ -14,7 +14,9 @@
     <div class="card-action">
         <a href="{{ .Permalink }}">Details</a>
 		  
-        <a href="{{ .Params.siteAddress }}">Website</a>
+			{{ with .Params.siteAddress }}
+				<a href="{{ . }}">Website</a>
+			{{ end }}
 		  
 			{{ with .Params.downloads }}
 				{{ $source_downloads := where . "type" "source" }}
