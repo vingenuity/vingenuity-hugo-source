@@ -70,11 +70,9 @@
 					<ul class="browser-default">
                   {{ range $developer_key, $developer_count := .Params.team.developer_counts }}
 							{{ if gt $developer_count 0 }}
-								{{ $.Scratch.Set "developer_title" (index $.Site.Params.developer_titles $developer_key) }}
-								{{ if gt $developer_count 1 }}
-									{{ $.Scratch.Set "developer_title" ( pluralize ( $.Scratch.Get "developer_title" ) ) }}
-								{{ end }}
-						<li>{{ $developer_count }} {{ $.Scratch.Get "developer_title" }}
+							   {{ $developer_title := index $.Site.Params.developer_titles $developer_key }}
+							   {{ $developer_title := cond ( gt $developer_count 1 ) ( pluralize $developer_title ) $developer_title }}
+						<li>{{ $developer_count }} {{ $developer_title }}
 							{{ end }}
 						{{ end }}
 			      </ul>

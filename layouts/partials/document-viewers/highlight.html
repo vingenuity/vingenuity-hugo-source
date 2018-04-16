@@ -1,9 +1,5 @@
 <!-- Assumes that the context is a resume object. See the resume.md archetype for details. -->
+{{ $errorText := printf "Unable to find file to view at path %s" .document.path }}
 {{ $staticDocumentPath := (printf "/static%s" .document.path) }}
-{{ $.page.Scratch.Set "textToHighlight" "" }}
-{{ if (fileExists $staticDocumentPath) }}
-	{{ $.page.Scratch.Set "textToHighlight" (readFile $staticDocumentPath) }}
-{{ else }}
-	{{ $.page.Scratch.Set "textToHighlight" (printf "Unable to find file to view at path %s" .document.path) }}
-{{ end }}
-{{ highlight ($.page.Scratch.Get "textToHighlight") .document.type "" }}
+{{ $textToHighlight := cond (fileExists $staticDocumentPath) (readFile $staticDocumentPath) $errorText }}
+{{ highlight $textToHighlight .document.type "" }}

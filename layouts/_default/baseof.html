@@ -24,52 +24,52 @@
       <ul id="slide-out" class="sidenav sidenav-fixed {{ .Site.Params.sideNav.backgroundColor }}">
 		
 			<!-- Header Image, Title, and Contact Information -->
-			{{ if isset .Site.Params.sideNav.header "iconcolor" }}
-				{{ $.Scratch.Set "headerIconColorClass" (printf " %s-text" .Site.Params.sideNav.header.iconColor) }}
-			{{ end }}
-			{{ if isset .Site.Params.sideNav.header "iconsize" }}
-				{{ $.Scratch.Set "headerIconSizeClass" (printf "fa-%s" .Site.Params.sideNav.header.iconSize) }}
-			{{ end }}
-			{{ if isset .Site.Params.sideNav.header "textcolor" }}
-				{{ $.Scratch.Set "headerTextColorClass" (printf " %s-text" .Site.Params.sideNav.header.textColor) }}
-			{{ end }}
+			{{ $headerIconColor := cond ( isset .Site.Params.sideNav.header "iconcolor" ) .Site.Params.sideNav.header.iconColor "black" }}
+			{{ $headerIconColorClass := printf " %s-text" $headerIconColor }}
+			
+			{{ $headerIconSize := cond ( isset .Site.Params.sideNav.header "iconsize" ) .Site.Params.sideNav.header.iconSize "black" }}
+			{{ $headerIconSizeClass := printf " fa-%s" $headerIconSize }}
+			
+			{{ $headerTextColor := cond ( isset .Site.Params.sideNav.header "textcolor" ) .Site.Params.sideNav.header.textColor "black" }}
+			{{ $headerTextColorClass := printf " %s-text" $headerTextColor }}
+			
          <li><div class="user-view">
 				<div class="background-frame">
                <img class="background-image" src="{{ .Site.Params.sideNav.header.backgroundImage }}">
 				</div>
 				<div class="text-frame">
-               <p id="name-text" class="{{ $.Scratch.Get "headerTextColorClass" }}">{{ .Site.Params.owner.name }}</p>
-               <p id="description-text" class="{{ $.Scratch.Get "headerTextColorClass" }}">{{ .Site.Params.owner.description }}</p>
+               <p id="name-text" class="{{ $headerTextColorClass }}">{{ .Site.Params.owner.name }}</p>
+               <p id="description-text" class="{{ $headerTextColorClass }}">{{ .Site.Params.owner.description }}</p>
 					
 				</div>
 				<div class="social-frame">
-					{{ $socialIconsArgs := dict "owner" .Site.Params.owner "iconColorClass" ($.Scratch.Get "headerIconColorClass") "iconSizeClass" ($.Scratch.Get "headerIconSizeClass") }}
+					{{ $socialIconsArgs := dict "owner" .Site.Params.owner "iconColorClass" $headerIconColorClass "iconSizeClass" $headerIconSizeClass }}
 					{{ partial "social-icons.html" $socialIconsArgs }}
 				</div>
          </div></li>
 			
 			<!-- Site Menu -->
-			{{ if isset .Site.Params.sideNav.menu "iconcolor" }}
-				{{ $.Scratch.Set "menuIconColorClass" (printf " %s-text" .Site.Params.sideNav.menu.iconColor) }}
-			{{ end }}
-			{{ if isset .Site.Params.sideNav.menu "iconsize" }}
-				{{ $.Scratch.Set "menuIconSizeClass" (printf " fa-%s" .Site.Params.sideNav.menu.iconSize) }}
-			{{ end }}
-			{{ if isset .Site.Params.sideNav.menu "textcolor" }}
-				{{ $.Scratch.Set "menuTextColorClass" (printf " %s-text" .Site.Params.sideNav.menu.textColor) }}
-			{{ end }}
+			{{ $menuIconColor := cond ( isset .Site.Params.sideNav.menu "iconcolor" ) .Site.Params.sideNav.menu.iconColor "black" }}
+			{{ $menuIconColorClass := printf " %s-text" $menuIconColor }}
+			
+			{{ $menuIconSize := cond ( isset .Site.Params.sideNav.menu "iconsize" ) .Site.Params.sideNav.menu.iconSize "black" }}
+			{{ $menuIconSizeClass := printf " fa-%s" $menuIconSize }}
+			
+			{{ $menuTextColor := cond ( isset .Site.Params.sideNav.menu "textcolor" ) .Site.Params.sideNav.menu.textColor "black" }}
+			{{ $menuTextColorClass := printf " %s-text" $menuTextColor }}
+			
          <li><a href="/">
 				{{ if eq .Site.Params.sideNav.menu.useIcons true }}
-			   <i class="fa fa-home {{ $.Scratch.Get "menuIconColorClass" }} {{ $.Scratch.Get "menuIconSizeClass" }}"></i>
+			   <i class="fa fa-home {{ $menuIconColorClass }} {{ $menuIconSizeClass }}"></i>
 				{{ end }}
-			   <span class="{{ $.Scratch.Get "menuTextColorClass" }}">Home</span>
+			   <span class="{{ $menuTextColorClass }}">Home</span>
 			</a></li>
 			{{ range .Site.Sections }}
             <li><a href="{{ .Permalink }}">
 					{{ if isset .Site.Params.sideNav.menu.icons .Section | and (eq .Site.Params.sideNav.menu.useIcons true) }}
-					<i class="fa fa-{{ index .Site.Params.sideNav.menu.icons .Section }} {{ $.Scratch.Get "menuIconColorClass" }} {{ $.Scratch.Get "menuIconSizeClass" }}"></i>
+					<i class="fa fa-{{ index .Site.Params.sideNav.menu.icons .Section }} {{ $menuIconColorClass }} {{ $menuIconSizeClass }}"></i>
 					{{ end }}
-				   <span class="{{ $.Scratch.Get "menuTextColorClass" }}">{{ .Title }}</span>
+				   <span class="{{ $menuTextColorClass }}">{{ .Title }}</span>
 				</a></li>
          {{ end }}
       </ul>
