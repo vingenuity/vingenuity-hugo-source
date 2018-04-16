@@ -117,8 +117,8 @@
 			{{ end }}
 		</div>
 		
-		{{ with .Params.downloads }}
       <div id="downloads">
+		{{ with .Params.downloads }}
 			{{ $executable_downloads := where . "type" "executable" }}
 			{{ if gt (len $executable_downloads) 0 }}
 				<h4>Executables:</h4>
@@ -140,8 +140,10 @@
 			{{ else }}
 				<p>The source for this project is currently unavailable.</p>
 			{{ end }}
-		</div>
+		{{ else }}
+			<p>No downloads are currently available for this project.</p>
 		{{ end }}
+		</div>
    </div>
 </div>
 
