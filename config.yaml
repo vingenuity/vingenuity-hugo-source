@@ -55,7 +55,7 @@ params:
   topNav:
     backgroundColor: blue darken-4
     logo: "/images/vingenuity-logo.png"
-    text: "Vincent Kocks"
+    text: "Vingenuity"
   
   developer_titles:
     artist: "Artist"
