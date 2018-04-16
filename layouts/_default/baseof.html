@@ -66,10 +66,10 @@
 			{{ $navBackgroundColor := cond ( isset .Site.Params.topNav "backgroundcolor" ) .Site.Params.topNav.backgroundColor "" }}
 			<div class="nav-wrapper {{ $navBackgroundColor }}">
 				<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars fa-2x"></i></a>
-				<div class="brand-logo center">
+				<a href="/"><div class="brand-logo center">
                <img class="left" src="{{ .Site.Params.topNav.logo }}">
 					{{ .Site.Params.topNav.text }}
-				</div>
+				</div></a>
 			</div>
 		</nav>
 
