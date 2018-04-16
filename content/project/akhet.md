@@ -4,6 +4,7 @@ logo: "/images/akhet/logo_large.png"
 showSummaryInSectionPage: false
 showTitleInSectionPage: false
 showTitleInSinglePage: false
+featured: false
 
 project:
    engine: "UDK"

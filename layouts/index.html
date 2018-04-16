@@ -9,9 +9,11 @@
 
 {{ $projectCount := len (where .Site.RegularPages "Section" "==" "project") }}
 {{ if gt $projectCount 0 }}
-   <h4>Recent Projects:</h4>
+   <h4>Featured Projects:</h4>
 	<div class="row">
-		{{ range first 5 (where .Site.RegularPages.ByDate.Reverse "Section" "project") }} 
+	   {{ $project_pages := (where .Site.RegularPages "Section" "project") }}
+	   {{ $featured_project_pages := (where $project_pages "Params.featured" true) }}
+		{{ range first 4 $featured_project_pages }} 
 			{{ if eq .Type "project" }}
 				<div class="col s12 m6">
 					{{ partial "card-project.html" . }}

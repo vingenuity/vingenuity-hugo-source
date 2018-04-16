@@ -5,6 +5,7 @@ showSummaryInSectionPage: false
 showTitleInSectionPage: false
 showTitleInSinglePage: false
 siteAddress: "https://orcsmustdie.com/"
+featured: true
 
 project:
    engine: "UE3"

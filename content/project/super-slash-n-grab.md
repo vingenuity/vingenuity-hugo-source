@@ -5,6 +5,7 @@ showSummaryInSectionPage: false
 showTitleInSectionPage: false
 showTitleInSinglePage: false
 siteAddress: "http://www.indiedb.com/games/super-slash-n-grab"
+featured: true
 
 project:
    engine: "UDK"
