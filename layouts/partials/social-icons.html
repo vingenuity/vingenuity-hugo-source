@@ -15,6 +15,10 @@
 	<a class="social-icon" href="https://github.com/{{ .owner.githubusername }}"><i class="hoverable fa fa-github {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
 {{ end }}
 
+{{ if isset .owner "hackerrankusername" }}
+	<a class="social-icon" href="https://www.hackerrank.com/{{ .owner.hackerrankusername }}"><simple-svg class="{{ .iconColorClass }}" data-width="18" style="vertical-align: baseline !important;" data-icon="simple-icons:hackerrank"></simple-svg></a>
+{{ end }}
+
 {{ if isset .owner "linkedinslug" }}
 	<a class="social-icon" href="https://www.linkedin.com/in/{{ .owner.linkedinslug }}"><i class="hoverable fa fa-linkedin-square {{ .iconSizeClass }} {{ .iconColorClass }}"></i></a>
 {{ end }}
