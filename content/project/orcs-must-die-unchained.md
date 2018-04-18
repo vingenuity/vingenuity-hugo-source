@@ -26,6 +26,9 @@ multimedia:
    - { type: "video", src: "https://youtube.com/embed/W41AhvXN-ic", width: 720, height: 405 }
    - { type: "video", src: "https://www.youtube.com/embed/d_E6XcXk6Ds", width: 720, height: 405 }
    - { type: "image", src: "/images/omdu/loading-chaos.jpg" }
+   - { type: "image", src: "/images/omdu/game-sabotage-stun.jpg" }
+   - { type: "image", src: "/images/omdu/game-sabotage-unchained.jpg" }
+   - { type: "image", src: "/images/omdu/menu-tab-sabotage.jpg" }
 
 roles:
    - title: "UI Programmer"
