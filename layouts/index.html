@@ -13,7 +13,7 @@
 	<div class="row">
 	   {{ $project_pages := (where .Site.RegularPages "Section" "project") }}
 	   {{ $featured_project_pages := (where $project_pages "Params.featured" true) }}
-		{{ range first 4 $featured_project_pages }} 
+		{{ range ( ( first 4 $featured_project_pages ).ByParam "project.development_dates.end" ).Reverse }} 
 			{{ if eq .Type "project" }}
 				<div class="col s12 m6">
 					{{ partial "card-project.html" . }}

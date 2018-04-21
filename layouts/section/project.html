@@ -3,7 +3,8 @@
 <h3>{{ .Page.Title }}</h3>
 
 <div class="row">
-	{{ range .Data.Pages }} <!-- Will only loop projects, due to the scope of this file -->
+	<!-- Will only loop projects, due to the scope of this file -->
+	{{ range ( .Data.Pages.ByParam "project.development_dates.end" ).Reverse }} 
 		<div class="col s12 m6">
 			{{ partial "card-project.html" . }}
 		</div>
