@@ -36,4 +36,18 @@
    </div>
 </div>
 
+<div class="row">
+	<div class="col s3 left-align">
+		<a class="waves-effect waves-light btn {{if not .PrevInSection}}disabled{{end}}" href="{{if .PrevInSection}}{{.PrevInSection.Permalink}}{{end}}"><i class="fa fa-angle-left"></i> Last Post</a>
+	</div>
+	
+	<div class="col s4 center-align offset-s1">
+		<a class="waves-effect waves-light btn" href="/post/#{{ .File.BaseFileName }}">All Posts</a>
+	</div>
+	
+	<div class="col s3 right-align offset-s1">
+		<a class="waves-effect waves-light btn {{if not .NextInSection}}disabled{{end}}" href="{{if .NextInSection}}{{.NextInSection.Permalink}}{{end}}">Next Post <i class="fa fa-angle-right"></i></a>
+	</div>
+</div>
+
 {{ end }}
