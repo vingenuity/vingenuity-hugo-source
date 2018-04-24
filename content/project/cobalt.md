@@ -27,12 +27,12 @@ roles:
      responsibilities:
        - Wrote PowerShell scripts for developer and build server use.
        - Managed TeamCity CI projects and configurations for all UE4 teams.
-		 - Maintained build agent environments for producing cross-platform builds.
+       - Maintained build agent environments for producing cross-platform builds.
    - title: "Tools Programmer"
      responsibilities:
        - Documented localization, PS4, and build workflows for developers.
        - Prototyped client deployment application for playtest PCs and PS4s.
-		 - Configured and deployed Unreal Game Sync for development team.
+       - Configured and deployed Unreal Game Sync for development team.
 
 downloads:
 
