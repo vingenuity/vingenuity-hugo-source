@@ -83,10 +83,20 @@
          </div>
       </main>
 
-      <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+
       <script type="text/javascript" src="/js/materialize.min.js"></script>
+
+      <script type="text/javascript" src="/js/raphael.min.js"></script>
+      <script type="text/javascript" src="/js/flowchart.js"></script>
+      <script type="text/javascript" src="/js/flowchart-jquery-plugin.js"</script>
+
+      <!-- TODO: Figure out why flow charts only work if these scripts are in this exact order... -->
       <script type="text/javascript" src="/js/scripts.js"></script>
+      <script>
+         $(".flowchart-js").flowchart();
+      </script>
+
    </body>
 
    <footer>
