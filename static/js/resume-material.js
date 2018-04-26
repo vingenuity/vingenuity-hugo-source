@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    
- M.AutoInit();
+    M.AutoInit();
+    mermaid.initialize();
 });
