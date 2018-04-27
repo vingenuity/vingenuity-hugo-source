@@ -2,6 +2,7 @@
 title = "Starting Over"
 subtitle = ""
 date = "2018-04-04"
+show_toc = false
 Description = ""
 Tags = ["Miscellaneous"]
 Categories = ["Miscellaneous"]

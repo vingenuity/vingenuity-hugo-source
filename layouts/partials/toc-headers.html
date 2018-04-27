@@ -1,0 +1,55 @@
+<!--
+	This partial is based on user mikeblum's TOC partial from Hugo issue 1778:
+	https://github.com/gohugoio/hugo/issues/1778
+	
+	I have heavily modified his original partial to clarify the workings of the code and to change the output.
+	My modified version removes the prebuilt header, fixes the nesting, and adds support for setting classes via passed-in parameters.
+	
+	dict parameters:
+		page: The original page context within which this partial is contained.
+		wrapper_class: The class name(s) that should be given to the div wrapping the TOC.
+		ul_class_prefix: The class name(s) that will precede the header level number in the class of the ul
+			Default: "toc-h(#)"
+		li_class: The class name(s) that should be applied to the <li> tags.
+-->
+
+{{ $including_page := .page }}
+{{ $page_scratch := $including_page.Scratch }}
+{{ $ul_class_prefix := default "toc-h" .ul_class_prefix }}
+
+<div {{ if $.wrapper_class }}class="{{ $.wrapper_class }}"{{ end }}>
+	<!-- ignore empty links with + -->
+	{{ $page_scratch.Set "current_depth" 0 }}
+	{{ $heading_elements_in_content := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" $including_page.Content }}
+	{{ range $heading_elements_in_content }}
+		{{ $heading_element := . }}
+
+		{{ $first_heading_tag_in_element := index (findRE "<h[1-6]" $heading_element 1) 0 }}
+		{{ $heading_depth_text := index (findRE "[1-6]" $first_heading_tag_in_element 1) 0 }}
+		{{ $heading_depth := (int $heading_depth_text) }}
+
+		{{ $current_depth := $page_scratch.Get "current_depth" }}
+		{{ if ( gt $heading_depth $current_depth ) }}
+			{{ range (seq (add $current_depth 1) $heading_depth) }}
+				<ul class="{{ $ul_class_prefix }}{{ . }}">
+			{{ end }}
+			{{ $page_scratch.Set "current_depth" $heading_depth }}
+		{{ else if (lt $heading_depth $current_depth ) }}
+			{{ range (seq $heading_depth (sub $current_depth 1 ) ) }}
+				</ul>
+			{{ end }}
+			{{ $page_scratch.Set "current_depth" $heading_depth }}
+		{{ end }}
+
+		{{ $anchor_id := ($heading_element | plainify | htmlEscape | urlize) }}
+		{{ $href := (printf "#%s" $anchor_id ) }}
+		{{ $heading_text := $heading_element | plainify | htmlEscape }}
+			<li {{ if $.li_class }}class="{{ $.li_class }}"{{ end }}>
+				<a href="{{ relref $including_page $href }}">{{ $heading_text }}</a>
+			</li>
+	{{ end }}
+
+	{{ range ( seq ($page_scratch.Get "current_depth") ) }}
+		</ul>
+	{{ end }}
+</div>
