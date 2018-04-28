@@ -53,9 +53,9 @@ TODO: Come back to this later for scrollspy support in the TOC...
 
 	{{ if $show_toc }}
 		<aside class="col hide-on-small-only m3 l2">
-			<div class="pinned">-
+			<div class="pinned">
 				{{ $toc_parameters := (dict "page" . "wrapper_class" "table-of-contents") }}
-				{{ partial "toc-headers.html" $toc_parameters }}-
+				{{ partial "toc-headers.html" $toc_parameters }}
 			</div>
 		</aside>
 	{{ end }}
