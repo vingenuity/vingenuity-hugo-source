@@ -48,12 +48,12 @@
 	</div>
 
 	{{ if $show_toc }}
-		<aside class="col hide-on-small-only m3 l2">
+		<div class="col hide-on-small-only m3 l2">
 			<div class="pinned">
 				{{ $toc_parameters := (dict "page" . "wrapper_class" "table-of-contents") }}
 				{{ partial "toc-headers.html" $toc_parameters }}
 			</div>
-		</aside>
+		</div>
 	{{ end }}
 </div>
 
