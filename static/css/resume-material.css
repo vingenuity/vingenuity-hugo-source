@@ -37,11 +37,11 @@
 }
 
 /* Bring back the default list styling in posts, which is normally overridden by Materialize CSS */
-div.post ul{
+article.post ul{
 	padding-left: 40px;
 }
 
-div.post ul li{
+article.post ul li{
 	list-style-type: disc;
 }
 
