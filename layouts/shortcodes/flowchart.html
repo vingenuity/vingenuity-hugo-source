@@ -1,2 +1,12 @@
-{{ $chartID := .Get 0 }}
-<figure class="mermaid" id="{{ $chartID }}">{{ .Inner }}</figure>
+{{ if .IsNamedParams }}
+	{{ $.Scratch.Set "chart_id" ( .Get "id" ) }}
+	{{ $.Scratch.Set "color_class" ( .Get "color_class" ) }}
+{{ else }}
+	{{ $.Scratch.Set "chart_id" ( .Get 0 ) }}
+{{ end }}
+{{ $chart_id := $.Scratch.Get "chart_id" }}
+{{ $color_class := default "grey lighten-5" ( $.Scratch.Get "color_class" ) }}
+
+<figure class="mermaid card-panel {{ $color_class }}" id="{{ $chart_id }}">
+	{{ .Inner }}
+</figure>
