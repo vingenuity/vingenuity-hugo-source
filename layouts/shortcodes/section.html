@@ -1,0 +1,24 @@
+<!-- Start by trying to get the section and id from the parameters. -->
+{{ if .IsNamedParams }}
+	{{ $.Scratch.Set "section_class" ( .Get "class" ) }}
+	{{ $.Scratch.Set "section_id" ( .Get "id" ) }}
+{{ else }}
+	{{ $.Scratch.Set "section_class" ( .Get 0 ) }}
+	{{ $.Scratch.Set "section_id" ( .Get 1 ) }}
+{{ end }}
+
+<!--	If an id wasn't given, take the id of the first header element in the section.
+		(This is useful in MaterializeCSS for easily syncing sections and headers.) -->
+{{ if not ( $.Scratch.Get "section_id" ) }}
+	{{ $heading_elements_in_inner := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Inner }}
+	{{ $first_heading_element := index ( first 1 $heading_elements_in_inner ) 0 }}
+	{{ $.Scratch.Set "section_id" ($first_heading_element | plainify | htmlEscape | urlize) }}
+{{ end }}
+
+{{ $section_class := $.Scratch.Get "section_class" }}
+{{ $section_id := $.Scratch.Get "section_id" }}
+
+<!-- If no class or id was given or found, just don't supply them. -->
+<section{{ if $section_class }} class="{{ $section_class }}"{{ end }}{{ if $section_id }} id="{{ $section_id }}"{{ end }}>
+{{ .Inner }}
+</section>
