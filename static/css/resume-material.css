@@ -44,3 +44,10 @@ div.post ul{
 div.post ul li{
 	list-style-type: disc;
 }
+
+/*	A big thanks to user mmla on stackoverflow for this Flexbox trick:
+		https://stackoverflow.com/questions/44846068/css-equal-height-columns */
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
