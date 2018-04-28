@@ -1,0 +1,20 @@
+{{ if .IsNamedParams }}
+	{{ $.Scratch.Set "language" ( .Get "language" ) }}
+	{{ $.Scratch.Set "show_line_nums" ( .Get "show_line_nums" ) }}
+	{{ $.Scratch.Set "first_line_num" ( .Get "first_line_num" ) }}
+	{{ $.Scratch.Set "highlight_lines" ( .Get "highlight_lines" ) }}
+	{{ $.Scratch.Set "word_wrap" ( .Get "word_wrap" ) }}
+{{ else }}
+	{{ $.Scratch.Set "language" ( .Get 0 ) }}
+{{ end }}
+{{ $language := $.Scratch.Get "language" }}
+{{ $show_line_nums := default "true" ($.Scratch.Get "show_line_nums") }}
+{{ $first_line_num := default 1 ($.Scratch.Get "first_line_num") }}
+{{ $highlight_lines := $.Scratch.Get "highlight_lines" }}
+{{ $word_wrap := default "true" ($.Scratch.Get "word_wrap") }}
+
+<pre class="card-panel{{ if $show_line_nums }} line-numbers{{ end }}" data-start="{{ $first_line_num }}"{{ if eq $highlight_lines "true" }} data-line="{{ $highlight_lines }}"{{ end }}{{ if eq $word_wrap "true" }} style="white-space: pre-wrap;"{{ end }}>
+	<code{{ if $language }} class="language-{{ $language }}"{{ end }}>
+		{{ .Inner }}
+	</code>
+</pre>
