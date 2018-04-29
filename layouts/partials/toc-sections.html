@@ -1,0 +1,34 @@
+<!--
+	This partial is a riff on the toc-headers partial that creates the table of contents from the sections of a document instead of the headers. This is useful for Materialize CSS's scrollspy functionality.
+
+	dict parameters:
+		page: The original page context within which this partial is contained.
+		wrapper_class: The class name(s) that should be given to the div wrapping the TOC.
+		ul_class_prefix: The class name(s) that will precede the header level number in the class of the ul
+			Default: "toc-h(#)"
+		li_class: The class name(s) that should be applied to the <li> tags.
+-->
+
+{{ $including_page := .page }}
+{{ $page_scratch := $including_page.Scratch }}
+{{ $ul_class_prefix := default "toc-h" .ul_class_prefix }}
+
+<div {{ if $.wrapper_class }}class="{{ $.wrapper_class }}"{{ end }}>
+	<ul class="{{ $ul_class_prefix }}{{ . }}">
+	<!-- ignore empty links with + -->
+	{{ $page_scratch.Set "current_depth" 0 }}
+	{{ $section_elements_in_content := findRE "<section.*?>(.|\n)+?</section>" $including_page.Content }}
+	{{ range $section_elements_in_content }}
+		{{ $section_element := . }}
+		{{ $first_heading_element_in_section := index (findRE "<h[1-6].*?>(.|\n)+?</h[1-6]>" $section_element 1) 0 }}
+
+		{{ $first_heading_text := $first_heading_element_in_section | plainify | htmlEscape }}
+		{{ $anchor_id := ($first_heading_element_in_section | plainify | htmlEscape | urlize) }}
+		{{ $href := (printf "#%s" $anchor_id ) }}
+		<li {{ if $.li_class }}class="{{ $.li_class }}"{{ end }}>
+			<a href="{{ relref $including_page $href }}">{{ $first_heading_text }}</a>
+		</li>
+	{{ end }}
+
+	</ul>
+</div>
