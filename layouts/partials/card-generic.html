@@ -1,0 +1,21 @@
+
+<div id="{{.File.BaseFileName }}" class="card horizontal">
+	<div>
+		<div class="row flex blue darken-2">
+			<div class="col s2 grey lighten-4 post-date">
+				<p class="center-align black-text" >{{ .Date.Format "02 Jan"   }}</p>
+				<h5 class="center-align grey-text text-darken-1" >{{ .Date.Format "2006" }}</h5>
+			</div>
+			<div class="col s9">
+				<h5 class="grey-text text-lighten-4">{{ title .Title }}</h5>
+				{{ if .Params.subtitle }}
+					<p class="italic grey-text text-lighten-2">{{ .Params.subtitle }}</p>
+				{{ end }}
+			</div>
+		</div>
+		<blockquote>{{ .Summary }}</blockquote>
+		<div class="card-action">
+			<a href="{{ .Permalink }}">More Info</a>
+		</div>
+	</div>
+</div>

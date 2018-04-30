@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+<h3>{{ .Page.Title }}</h3>
+<div class="divider"></div>
+
+{{ range .Data.Pages }} <!-- Will only loop content in the section, due to the scope of this file -->
+   {{ partial "card-generic.html" . }}
+{{ end }}
+
+{{ end }}

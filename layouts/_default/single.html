@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+{{ $show_toc := default true .Params.show_toc }}
+
+<div class="row">
+	<div class="col s12{{ if $show_toc }} m9 l10{{end}}">
+		<div class="row flex z-depth-1">
+			<div class="col s2 grey lighten-4">
+				<h3 class="center-align black-text" >{{ .Date.Format "02"   }}</h3>
+				<h5 class="center-align grey-text text-darken-2" >{{ .Date.Format "Jan"  }}</h5>
+				<p class="center-align grey-text text-darken-1" >{{ .Date.Format "2006" }}</p>
+			</div>
+			<div class="col s10 blue darken-2">
+				<h3 class="grey-text text-lighten-4">{{ title .Title }}</h3>
+				{{ if .Params.subtitle }}
+					<h4 class="italic grey-text text-lighten-2">{{ .Params.subtitle }}</h4>
+				{{ end }}
+			</div>
+		</div>
+
+		<article class="post">
+			{{ .Content }}
+		</article>
+		<div class="divider"></div>
+
+		<div class="section row">
+			<div class="col s4 center-align offset-s4">
+				<a class="waves-effect waves-light btn" href="{{ .CurrentSection.Permalink }}#{{ .File.BaseFileName }}">Back to List</a>
+			</div>
+		</div>
+	</div>
+
+	{{ if $show_toc }}
+		<div class="col hide-on-small-only m3 l2">
+			<div class="pinned">
+				{{ $toc_parameters := (dict "page" . "wrapper_class" "table-of-contents") }}
+				{{ partial "toc-sections.html" $toc_parameters }}
+			</div>
+		</div>
+	{{ end }}
+</div>
+
+{{ end }}
