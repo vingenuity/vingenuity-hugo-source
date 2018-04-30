@@ -69,16 +69,19 @@
 							{{ $.Scratch.Add "total_developer_count" . }}
 						{{ end }}
 					<li><span class="stat-header">Developers: </span>{{ $.Scratch.Get "total_developer_count" }}
-					
-					<ul class="browser-default">
-                  {{ range $developer_key, $developer_count := .Params.team.developer_counts }}
+
+					{{ with $.Site.Params.developer_titles }}
+						{{ $developer_titles := . }}
+						<ul class="browser-default">
+						{{ range $developer_key, $developer_count := $.Params.team.developer_counts }}
 							{{ if gt $developer_count 0 }}
-							   {{ $developer_title := index $.Site.Params.developer_titles $developer_key }}
-							   {{ $developer_title := cond ( gt $developer_count 1 ) ( pluralize $developer_title ) $developer_title }}
-						<li>{{ $developer_count }} {{ $developer_title }}
+									{{ $developer_title := index $developer_titles $developer_key }}
+									{{ $developer_title := cond ( gt $developer_count 1 ) ( pluralize $developer_title ) $developer_title }}
+									<li>{{ $developer_count }} {{ $developer_title }}
+								{{ end }}
 							{{ end }}
 						{{ end }}
-			      </ul>
+						</ul>
 					{{ end }}
 				</ul>
 			</ul>
