@@ -21,13 +21,14 @@
 	{{ range $section_elements_in_content }}
 		{{ $section_element := . }}
 		{{ $first_heading_element_in_section := index (findRE "<h[1-6].*?>(.|\n)+?</h[1-6]>" $section_element 1) 0 }}
-
-		{{ $first_heading_text := $first_heading_element_in_section | plainify | htmlEscape }}
-		{{ $anchor_id := ($first_heading_element_in_section | plainify | htmlEscape | urlize) }}
-		{{ $href := (printf "#%s" $anchor_id ) }}
-		<li {{ if $.li_class }}class="{{ $.li_class }}"{{ end }}>
-			<a href="{{ relref $including_page $href }}">{{ $first_heading_text }}</a>
-		</li>
+		{{ with $first_heading_element_in_section }}
+			{{ $first_heading_text := . | plainify | htmlEscape }}
+			{{ $anchor_id := ( . | plainify | htmlEscape | urlize ) }}
+			{{ $href := (printf "#%s" $anchor_id ) }}
+			<li {{ if $.li_class }}class="{{ $.li_class }}"{{ end }}>
+				<a href="{{ relref $including_page $href }}">{{ $first_heading_text }}</a>
+			</li>
+		{{ end }}
 	{{ end }}
 
 	</ul>
