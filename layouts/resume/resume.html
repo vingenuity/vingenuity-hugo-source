@@ -22,35 +22,20 @@
 	{{ end }}
 </ul>
 
-<div class="card" id="resume-container">
 
-   <div class="card-content">
-      {{ .Content }}
-   </div>
-	
-   <div class="card-tabs">
-      <ul class="tabs tabs-fixed-width">
-         {{ range $.Params.resumes }}
-            <li class="tab col s3"><a href="#{{ .id }}">{{ .title }}</a></li>
-         {{ end }}
-      </ul>
-   </div>
-	
-   <div class="card-content grey lighten-4">
-      {{ range $.Params.resumes }}
-         <div id="{{ .id }}">
-		      <div class="video-container">
-               {{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
-               {{ $contextDictionary := (dict "document" . "page" $ ) }}
-		         {{ partial $fullViewerPath $contextDictionary }}
-		      </div>
-		      <div class="row">
-		         <a class="col s12 btn-large waves-effect waves-light blue lighten-2" href="{{ .path }}" download><i class="material-icons center">file_download</i>Download</a>
-		      </div>
+<div class="section" id="resume-content-frame">
+	{{ range $.Params.resumes }}
+		<div id="{{ .id }}">
+			<article class="video-container" style="height: 900px;">
+				{{ $fullViewerPath := (printf "document-viewers/%s" .viewer) }}
+				{{ $contextDictionary := (dict "document" . "page" $ ) }}
+				{{ partial $fullViewerPath $contextDictionary }}
+			</article>
+			<div class="row">
+				<a class="col s12 btn-large waves-effect waves-light blue lighten-2" href="{{ .path }}" download><i class="fa fa-download"></i> Download</a>
 			</div>
-      {{ end }}
-   </div>
+		</div>
+	{{ end }}
 </div>
 
 {{ end }}
-
