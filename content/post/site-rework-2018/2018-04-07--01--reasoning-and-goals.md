@@ -20,6 +20,7 @@ In general, when redoing a previous project or tool, it's a good idea to think a
 
 <!--more-->
 
+{{% section class="section scrollspy" %}}
 #### Old Site Postmortem
 
 Previously, I used Squarespace to design this site. While I was satisfied overall with my experience with their website building tools, there were also a number of small to medium annoyances that have caused me to decide to try something else for the new site.
@@ -65,7 +66,8 @@ Here's a quick list:
 5. **Squarespace sites are pretty heavyweight.**
 
 	The beauty of Squarespace's pages has a cost -- they use multiple code frameworks to support the sites and tooling. Additionally, since all of the websites are dynamic, this incurs further loading cost.
-
+{{% /section %}}
+{{% section class="section scrollspy" %}}
 #### New Site Goals
 
 From the pros and cons above, I have set a few goals that I would like the new site to meet:
@@ -89,7 +91,8 @@ From the pros and cons above, I have set a few goals that I would like the new s
 5. **Make updating the site as simple as possible.**
 
 	Using scripts (and possibly some CI tools later on), I would like to automate the process of updating and deploying the site as much as I can.
-
+{{% /section %}}
+{{% section class="section scrollspy" %}}
 #### Frameworks and Tools
 
 I have already chosen the frameworks and tools that I am going to be using to create the site. Here's the list so far:
@@ -113,9 +116,11 @@ I have already chosen the frameworks and tools that I am going to be using to cr
 5. **PowerShell**
 
 	When I worked on build systems at Robot, I used PowerShell as the primary scripting language. For this website, I see no reason to change. With the new [Powershell Core](https://github.com/PowerShell/PowerShell) update, my scripts will even be usable on Linux, which will make using CI tools much easier.
-	
+{{% /section %}}
+{{% section class="section scrollspy" %}}
 #### Conclusion
 
 With these lists, I feel like I have the basis I need to determine whether this new site will meet my needs. Addionally, this list will be helpful when looking back at the new site design when the site is completed. All that's left now is to get my hands dirty and make the new site.
 
 Until next time!
+{{% /section %}}
