@@ -51,3 +51,8 @@ article.post ul li{
 	display: flex;
 	flex-wrap: wrap;
 }
+
+/*	Fix padding and margin to the left of the post date */
+.row .col.post-date {
+	margin-left: 0;
+}
