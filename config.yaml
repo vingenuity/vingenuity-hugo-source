@@ -23,6 +23,10 @@ menu:
       name: Resume
       url: /resume/
       weight: 400
+    - identifier: work_samples
+      name: Work Samples
+      url: /work-sample/
+      weight: 500
 
 params:
   creationYear: 2014
@@ -52,16 +56,16 @@ params:
         project: wrench
         post: edit
         resume: paperclip
-        
+        work_samples: briefcase
+
   topNav:
     backgroundColor: blue darken-4
     logo: "/images/vingenuity-logo.png"
     text: "Vingenuity"
-  
+
   developer_titles:
     artist: "Artist"
     designer: "Designer"
     producer: "Producer"
     programmer: "Programmer"
     qa: "QA Tester"
-  
