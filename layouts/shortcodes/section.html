@@ -12,7 +12,9 @@
 {{ if not ( $.Scratch.Get "section_id" ) }}
 	{{ $heading_elements_in_inner := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Inner }}
 	{{ $first_heading_element := index ( first 1 $heading_elements_in_inner ) 0 }}
-	{{ $.Scratch.Set "section_id" ($first_heading_element | plainify | htmlEscape | urlize) }}
+	{{ if $first_heading_element }}
+		{{ $.Scratch.Set "section_id" ($first_heading_element | plainify | htmlEscape | urlize) }}
+	{{ end }}
 {{ end }}
 
 {{ $section_class := $.Scratch.Get "section_class" }}
