@@ -62,10 +62,9 @@ article.post ul li{
 	display: block;
 }
 
-/*	Icon rotation trick courtesy of: https://stackoverflow.com/questions/34472456/materializecss-collapsible-active-change-icon
+/*	Icon rotation trick courtesy of: https://stackoverflow.com/questions/34472456/materializecss-collapsible-active-change-icon */
 .collapsible li.active i.collapsible-indicator {
 	-ms-transform: rotate(180deg); /* IE 9 */
 	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
 	transform: rotate(180deg);
 }
-
