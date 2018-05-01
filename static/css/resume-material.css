@@ -56,3 +56,16 @@ article.post ul li{
 .row .col.post-date {
 	margin-left: 0;
 }
+
+/* Fixes inability to align in collapsible-headers. See: https://github.com/Dogfalo/materialize/issues/5133*/
+.collapsible-header {
+	display: block;
+}
+
+/*	Icon rotation trick courtesy of: https://stackoverflow.com/questions/34472456/materializecss-collapsible-active-change-icon
+.collapsible li.active i.collapsible-indicator {
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+	transform: rotate(180deg);
+}
+

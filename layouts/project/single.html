@@ -117,16 +117,33 @@
 				</ul>
 			{{ end }}
 		</div>
-		
-      <div id="work-samples">
-		   {{ with .Params.workSamples }}
-			   {{ range . }}
-			   {{ end }}
+
+		<div id="work-samples">
+			{{ $work_samples := where .Site.RegularPages "Type" "work-sample" }}
+			{{ $work_samples_for_project := where $work_samples ".Params.project_base_name" .File.TranslationBaseName }}
+			{{ with $work_samples_for_project }}
+				<ul class="collapsible">
+				{{ range . }}
+					<li>
+						<div class="collapsible-header" id="work-sample-header">
+							<i class="fa fa-chevron-down collapsible-indicator"></i>
+							{{ .Params.title }}
+							<span class="right">
+								<!-- TODO: Language icons go here. -->
+								<!-- <i class="fa fa-*"></i> -->
+							</span>
+						</div>
+						<div class="collapsible-body">
+							{{ .Content }}
+						</div>
+					</li>
+				{{ end }}
+				</ul>
 			{{ else }}
-			   <p>No work samples are currently available for this project.</p>
+				<p>No work samples are currently available for this project.</p>
 			{{ end }}
 		</div>
-		
+
       <div id="downloads">
 		{{ with .Params.downloads }}
 			{{ $executable_downloads := where . "type" "executable" }}
