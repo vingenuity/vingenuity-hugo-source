@@ -1,0 +1,17 @@
+<!-- Start by trying to get the section and id from the parameters. -->
+{{ if .IsNamedParams }}
+	{{ $.Scratch.Set "image_source" ( .Get "src" ) }}
+	{{ $.Scratch.Set "image_class" ( .Get "class" ) }}
+	{{ $.Scratch.Set "image_id" ( .Get "id" ) }}
+{{ else }}
+	{{ $.Scratch.Set "image_source" ( .Get 0 ) }}
+	{{ $.Scratch.Set "image_class" ( .Get 1 ) }}
+	{{ $.Scratch.Set "image_id" ( .Get 2 ) }}
+{{ end }}
+
+{{ $image_source := $.Scratch.Get "image_source" }}
+{{ $image_class := $.Scratch.Get "image_class" }}
+{{ $image_id := $.Scratch.Get "image_id" }}
+
+<!-- If no class or id was given or found, just don't supply them. -->
+<img{{ if $image_class }} class="{{ $image_class }}"{{ end }}{{ if $image_id }} id="{{ $image_id }}"{{ end }}{{ if $image_source }} src="{{ $image_source }}"{{ end }}>
