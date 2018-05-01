@@ -1,6 +1,7 @@
 +++
 title = "Dynamic Text Localizer"
 subtitle = ""
+date = 2014-04-30
 Description = ""
 Tags = []
 languages = ["unrealscript"]

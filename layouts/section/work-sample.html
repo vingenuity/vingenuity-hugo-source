@@ -3,8 +3,9 @@
 <h3>{{ .Page.Title }}</h3>
 <div class="divider"></div>
 
-{{ range .Data.Pages }} <!-- Will only loop work-samples, due to the scope of this file -->
-   {{ partial "card-work-sample.html" . }}
+{{ $sample_pages_by_project_name := sort .Data.Pages "Params.date" "desc" }}
+{{ range $sample_pages_by_project_name }}
+	{{ partial "card-work-sample.html" . }}
 {{ end }}
 
 {{ end }}

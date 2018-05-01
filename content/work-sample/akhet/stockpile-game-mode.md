@@ -1,6 +1,7 @@
 +++
 title = "Stockpile Game Mode"
 subtitle = ""
+date = 2014-04-28
 Description = ""
 Tags = []
 languages = ["unrealscript"]
