@@ -1,0 +1,54 @@
+{{ define "main" }}
+
+{{ $show_toc := default true .Params.show_toc }}
+
+{{ $project_page := default nil (.Site.GetPage "page" .Params.project_base_name ) }}
+{{ $project_params := cond (ne $project_page nil) $project_page.Params nil }}
+
+<div class="row">
+	<div class="col s12{{ if $show_toc }} m9 l10{{end}}">
+		<div class="row flex z-depth-1">
+			<div class="col s3 grey lighten-4 valign-wrapper">
+				{{ $project_logo := default "" ( index $project_params "logo" ) }}
+				<img class="responsive-img" src="{{ $project_logo }}">
+			</div>
+			<div class="col s9 blue darken-2">
+				<h3 class="grey-text text-lighten-4">{{ title .Title }}</h3>
+				{{ if .Params.subtitle }}
+					<h4 class="italic grey-text text-lighten-2">{{ .Params.subtitle }}</h4>
+				{{ end }}
+			</div>
+		</div>
+
+		<article class="post">
+			{{ .Content }}
+		</article>
+
+		<div class="divider"></div>
+
+		<div class="section row">
+			<div class="col s3 left-align">
+				<a class="waves-effect waves-light btn {{if not .PrevInSection}}disabled{{end}}" href="{{if .PrevInSection}}{{.PrevInSection.Permalink}}{{end}}"><i class="fa fa-angle-left"></i> Last Post</a>
+			</div>
+
+			<div class="col s4 center-align offset-s1">
+				<a class="waves-effect waves-light btn" href="/post/#{{ .File.BaseFileName }}">All Posts</a>
+			</div>
+
+			<div class="col s3 right-align offset-s1">
+				<a class="waves-effect waves-light btn {{if not .NextInSection}}disabled{{end}}" href="{{if .NextInSection}}{{.NextInSection.Permalink}}{{end}}">Next Post <i class="fa fa-angle-right"></i></a>
+			</div>
+		</div>
+	</div>
+
+	{{ if $show_toc }}
+		<div class="col hide-on-small-only m3 l2">
+			<div class="pinned">
+				{{ $toc_parameters := (dict "page" . "wrapper_class" "table-of-contents") }}
+				{{ partial "toc-sections.html" $toc_parameters }}
+			</div>
+		</div>
+	{{ end }}
+</div>
+
+{{ end }}

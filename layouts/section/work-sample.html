@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+<h3>{{ .Page.Title }}</h3>
+<div class="divider"></div>
+
+{{ range .Data.Pages }} <!-- Will only loop work-samples, due to the scope of this file -->
+   {{ partial "card-work-sample.html" . }}
+{{ end }}
+
+{{ end }}

@@ -68,3 +68,8 @@ article.post ul li{
 	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
 	transform: rotate(180deg);
 }
+
+/* Removes padding below header in work-sample cards */
+.card-sample-header {
+	margin-bottom: 0px;
+}

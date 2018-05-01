@@ -1,0 +1,23 @@
+
+{{ $project_page := default nil (.Site.GetPage "page" .Params.project_base_name ) }}
+{{ $project_params := cond (ne $project_page nil) $project_page.Params nil }}
+
+<div id="{{.File.BaseFileName }}" class="card horizontal">
+	<div>
+		<div class="row flex blue darken-2 card-sample-header">
+			<div class="col s3 grey lighten-4 post-date valign-wrapper">
+				{{ $project_logo := default "" ( index $project_params "logo" ) }}
+				<img class="responsive-img" src="{{ $project_logo }}">
+			</div>
+			<div class="col s9">
+				<h5 class="grey-text text-lighten-4">{{ title .Title }}</h5>
+				{{ if .Params.subtitle }}
+					<p class="italic grey-text text-lighten-2">{{ .Params.subtitle }}</p>
+				{{ end }}
+			</div>
+		</div>
+		<div class="card-action">
+			<a href="{{ .Permalink }}">More Info</a>
+		</div>
+	</div>
+</div>
