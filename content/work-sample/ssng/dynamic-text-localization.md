@@ -7,6 +7,7 @@ languages = ["actionscript", "unrealscript"]
 project_base_name = "super-slash-n-grab"
 file_links = ["https://github.com/vingenuity/ssng-source/blob/master/Unrealscript/SuperSlashNGrab/Classes/Text_Localizer.uc"]
 +++
+{{< image src="/images/ssng/dynamic-text-localization.jpg" class="responsive-img materialboxed" >}}
 {{% section class="section scrollspy" %}}
 ### Motivation
 UDK has a very well-made localization system that can handle localizing text, images, and even video files. However, in order to localize all of these assets, it performs this localization during the initial engine load. Unfortunately, this means that changing the localization in UDK normally requires a game restart.
